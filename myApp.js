@@ -71,7 +71,7 @@ const findPeopleByName = (personName, done) => {
 let food = "dosa";
 
 const findOneByFood = (food, done) => {
-  Person.findOne({"favoriteFoods":{$elemMatch:{name:food}}},function(err,data){
+  Person.findOne({favoriteFoods:food},function(err,data){
     if (err) 
     return done(err);
     done(null, data);

@@ -11,13 +11,13 @@ db.once("open", function () {
     console.log("Database Connected successfully");
 })
 
-const personSchema = mongoose.Schema({
+const personSchema = new mongoose.Schema({
   name:{type:String,required:true},
   age:{type:Number},
   favoriteFoods:{type:[String]}
 })
 
-let Person = mongoose.model("FoodCollections",personSchema);
+let Person = mongoose.model("personDetails",personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);

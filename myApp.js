@@ -68,8 +68,14 @@ const findPeopleByName = (personName, done) => {
   
 };
 
+let food = "dosa";
+
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({favoriteFoods:{$elemMatch:{name:food}}},function(err,data){
+    if (err) 
+    return done(err);
+    done(null, data);
+  })
 };
 
 const findPersonById = (personId, done) => {

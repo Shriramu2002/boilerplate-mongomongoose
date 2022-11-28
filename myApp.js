@@ -30,7 +30,7 @@ const createAndSavePerson = (done) => {
 
   person.save(function(err,data){
     if (err) 
-    return console.log(err);
+    return console.error(err);
     done(null, data)
   });
 

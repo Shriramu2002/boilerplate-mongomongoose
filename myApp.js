@@ -9,13 +9,13 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error: "));
 db.once("open", function () {
     console.log("Database Connected successfully");
-})
+});
 
 const personSchema = new mongoose.Schema({
   name:{type:String,required:true},
   age:{type:Number},
   favoriteFoods:{type:[String]}
-})
+});
 
 let Person = mongoose.model("Person",personSchema);
 
@@ -30,8 +30,8 @@ const createAndSavePerson = (done) => {
 
   person.save(function(err,data){
     if (err) 
-    return console.error(err);
-    done(null, data)
+    return done(err);
+    done(null, data);
   });
 
   
